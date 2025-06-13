@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Mahmoud\\Desktop\\chatapp\\chatapp.api\\wwwroot\\uploads\\2623ca7d-f1bf-4320-8533-b1be134043f0.png",
+      "PackagePath": "staticwebassets\\uploads\\2623ca7d-f1bf-4320-8533-b1be134043f0.png"
+    },
+    {
+      "Id": "C:\\Users\\Mahmoud\\Desktop\\chatapp\\chatapp.api\\wwwroot\\uploads\\f3b9de38-2e85-4d7c-911a-c4221c83baf4.png",
+      "PackagePath": "staticwebassets\\uploads\\f3b9de38-2e85-4d7c-911a-c4221c83baf4.png"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.chatapp.api.props",
+      "PackagePath": "build\\chatapp.api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.chatapp.api.props",
+      "PackagePath": "buildMultiTargeting\\chatapp.api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.chatapp.api.props",
+      "PackagePath": "buildTransitive\\chatapp.api.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.chatapp.api.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.chatapp.api.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
