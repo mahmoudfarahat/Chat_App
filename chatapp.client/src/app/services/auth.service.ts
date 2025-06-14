@@ -2,11 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { ApiResponse } from '../Models/ApiResponse';
+import { User } from '../Models/User';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  logout() {
+    localStorage.removeItem(this.token);
+    localStorage.removeItem('user')
+  }
  private baseUrl = 'https://localhost:5000/api/account';
  private token  = 'token'
    httpCLient = inject(HttpClient);
@@ -39,4 +44,26 @@ export class AuthService {
 
    }
 
+
+   me():Observable<ApiResponse<User>>{
+    return this.httpCLient.get<ApiResponse<User>>(`${this.baseUrl}/me` ,{
+      headers :{
+          Authorization: `Bearer ${this.getAccessToken}`
+      }
+    })
+      .pipe(
+        tap((response) =>{
+        if(response.isSuccess){
+            localStorage.setItem("user",JSON.stringify(response.data))
+        }
+      }))
+   }
+
+   get getAccessToken(): string | null {
+    return localStorage.getItem(this.token) || ''
+   }
+
+   isLoggedIn() : boolean {
+    return !!localStorage.getItem(this.token)
+   }
 }

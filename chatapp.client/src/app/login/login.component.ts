@@ -35,6 +35,7 @@ login(){
     this.authService.login(this.email,this.password)
       .subscribe({
         next : ()=>{
+          this.authService.me().subscribe()
           this.snackBar.open("Logged in successfully","close",{
             duration:3000
           })
