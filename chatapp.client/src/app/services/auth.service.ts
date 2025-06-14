@@ -7,7 +7,7 @@ import { ApiResponse } from '../Models/ApiResponse';
   providedIn: 'root'
 })
 export class AuthService {
- private baseUrl = 'http://localhost:5000/api/account';
+ private baseUrl = 'https://localhost:5000/api/account';
    httpCLient = inject(HttpClient);
 
    register(data: FormData): Observable<ApiResponse<string>> {
