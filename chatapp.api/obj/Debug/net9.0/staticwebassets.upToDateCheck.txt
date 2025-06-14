@@ -4,5 +4,6 @@ wwwroot\uploads\29c11adf-0435-4a47-90cb-d94a5cb66521.png
 wwwroot\uploads\68b9b836-fb81-4e79-92b0-9e07372c8d4b.png
 wwwroot\uploads\94c35edb-ed27-4650-94ff-2bcce07a58f5.png
 wwwroot\uploads\9ab00ce6-f8af-4a5d-a00f-0dd375a82c70.png
+wwwroot\uploads\c535a995-02af-478b-9ba8-0b49375cd641.png
 wwwroot\uploads\dda746ed-ecbb-49d5-bcab-dd7000e48eef.png
 wwwroot\uploads\f3b9de38-2e85-4d7c-911a-c4221c83baf4.png

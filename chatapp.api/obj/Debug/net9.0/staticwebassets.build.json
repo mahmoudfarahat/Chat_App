@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0NETgrn93bqgjB+zE+zVxHEVgmsfG7nyAJmJQ0DGvaY=",
+  "Hash": "r8w/xf98MsqXvyUBi1zbnH3UrPfWeA350dlfCiJineU=",
   "Source": "chatapp.api",
   "BasePath": "_content/chatapp.api",
   "Mode": "Default",
@@ -141,6 +141,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\9ab00ce6-f8af-4a5d-a00f-0dd375a82c70.png"
+    },
+    {
+      "Identity": "C:\\Users\\Mahmoud\\Desktop\\chatapp\\chatapp.api\\wwwroot\\uploads\\c535a995-02af-478b-9ba8-0b49375cd641.png",
+      "SourceId": "chatapp.api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Mahmoud\\Desktop\\chatapp\\chatapp.api\\wwwroot\\",
+      "BasePath": "_content/chatapp.api",
+      "RelativePath": "uploads/c535a995-02af-478b-9ba8-0b49375cd641#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ya41arz0ih",
+      "Integrity": "9m0a8I1NjLXTZzNFm6WRCiDZlvUxnF5428UkKM0LIVU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\c535a995-02af-478b-9ba8-0b49375cd641.png"
     },
     {
       "Identity": "C:\\Users\\Mahmoud\\Desktop\\chatapp\\chatapp.api\\wwwroot\\uploads\\dda746ed-ecbb-49d5-bcab-dd7000e48eef.png",
@@ -671,6 +692,88 @@
         {
           "Name": "label",
           "Value": "uploads/9ab00ce6-f8af-4a5d-a00f-0dd375a82c70.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9m0a8I1NjLXTZzNFm6WRCiDZlvUxnF5428UkKM0LIVU="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/c535a995-02af-478b-9ba8-0b49375cd641.png",
+      "AssetFile": "C:\\Users\\Mahmoud\\Desktop\\chatapp\\chatapp.api\\wwwroot\\uploads\\c535a995-02af-478b-9ba8-0b49375cd641.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "602841"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9m0a8I1NjLXTZzNFm6WRCiDZlvUxnF5428UkKM0LIVU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 11:26:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9m0a8I1NjLXTZzNFm6WRCiDZlvUxnF5428UkKM0LIVU="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/c535a995-02af-478b-9ba8-0b49375cd641.ya41arz0ih.png",
+      "AssetFile": "C:\\Users\\Mahmoud\\Desktop\\chatapp\\chatapp.api\\wwwroot\\uploads\\c535a995-02af-478b-9ba8-0b49375cd641.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "602841"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9m0a8I1NjLXTZzNFm6WRCiDZlvUxnF5428UkKM0LIVU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 11:26:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ya41arz0ih"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/c535a995-02af-478b-9ba8-0b49375cd641.png"
         },
         {
           "Name": "integrity",
