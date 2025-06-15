@@ -1,3 +1,4 @@
+import { TitleCasePipe } from '@angular/common';
 import { AuthService } from './../../services/auth.service';
 import { Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
@@ -6,7 +7,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat-sidebar',
-  imports: [MatIconModule , MatMenuModule],
+  imports: [MatIconModule , MatMenuModule ,TitleCasePipe] ,
   templateUrl: './chat-sidebar.component.html',
   styles: ``
 })

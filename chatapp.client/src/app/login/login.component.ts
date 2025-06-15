@@ -8,12 +8,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/module.d-CnjH8Dlt';
 import { ApiResponse } from '../Models/ApiResponse';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 
 @Component({
   selector: 'app-login',
-  imports: [MatFormFieldModule , MatInputModule  ,FormsModule , MatButtonModule , MatIconModule],
+  imports: [MatFormFieldModule , MatInputModule  ,FormsModule , MatButtonModule , MatIconModule ,RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
