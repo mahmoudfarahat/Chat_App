@@ -1,9 +1,10 @@
 import { TitleCasePipe } from '@angular/common';
 import { AuthService } from './../../services/auth.service';
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { Router } from '@angular/router';
+import { ChatService } from '../../services/chat.service';
 
 @Component({
   selector: 'app-chat-sidebar',
@@ -11,8 +12,12 @@ import { Router } from '@angular/router';
   templateUrl: './chat-sidebar.component.html',
   styles: ``
 })
-export class ChatSidebarComponent {
+export class ChatSidebarComponent implements OnInit {
+ ngOnInit(): void {
+  this.chatService.startConnection(this.authSerice.getAccessToken!)
+}
  authSerice = inject(AuthService)
+ chatService = inject(ChatService)
  router = inject(Router)
 
  logout(){
