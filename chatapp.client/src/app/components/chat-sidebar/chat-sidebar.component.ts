@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { ChatService } from '../../services/chat.service';
+import { User } from '../../Models/User';
 
 @Component({
   selector: 'app-chat-sidebar',
@@ -23,5 +24,10 @@ export class ChatSidebarComponent implements OnInit {
  logout(){
   this.authSerice.logout()
   this.router.navigate(['/login'])
+  this.chatService.disConnectConnection()
+ }
+
+ openChatWindow(user: User) {
+  this.chatService.currebrOpenedChat.set(user);
  }
 }
