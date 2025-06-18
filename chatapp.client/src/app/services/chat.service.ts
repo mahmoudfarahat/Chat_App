@@ -54,6 +54,12 @@ chatMessages = signal<Message[]>([]);
       this.chatMessages.update((messages) => [...message, ...messages]);
       console.log(this.chatMessages());
     });
+
+      this.hubConnection!.on('ReceiveNewMessage', (message) => {
+        document.title = '(1) New Message';
+      this.chatMessages.update((messages) => [...messages, message]);
+
+    });
   }
 
   disConnectConnection() {
@@ -68,6 +74,31 @@ chatMessages = signal<Message[]>([]);
         });
     }
   }
+
+  sendMessage(message:string){
+    this.chatMessages.update((messages)=>[
+      ...messages,
+      {
+        content:message,
+        senderId: this.authSerivce.currentLoggedUser!.id,
+        receiverId: this.currentbrOpenedChat()!.id,
+        createdDate: new Date().toString(),
+        isRead:false,
+        id:0
+      }
+    ])
+
+    this.hubConnection?.invoke('SendMessage',{
+      content: message,
+      senderId: this.authSerivce.currentLoggedUser!.id,
+      receiverId: this.currentbrOpenedChat()!.id,
+    }).then((id) => {
+      console.log(id);
+    }).catch((error) => {
+      console.error('Error sending message:', error);
+    })
+  }
+
 
 
   status(userName: string):string {
