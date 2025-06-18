@@ -1,24 +1,26 @@
-@if (chatService.currebrOpenedChat())
+@if (chatService.currentbrOpenedChat())
 {
+
 <div class="relative w-full bg=[#dfe7f1] h-full">
   <div class="chat-header flex justify-between items-center border-b w-full bg-white p-4">
     <div>
       <span class="font-bold leading-normal">
-        {{chatService.currebrOpenedChat()?.fullName | titlecase}}
+        {{chatService.currentbrOpenedChat()?.fullName | titlecase}}
       </span>
       <br>
       <span class="text-gray-400 text-sm font-bold">
-        {{chatService.status(chatService.currebrOpenedChat()?.userName!)}}
+        {{chatService.status(chatService.currentbrOpenedChat()?.userName!)}}
       </span>
     </div>
-  </div>
-  <mat-icon class="cursor-pointer hover:text-red-500">
+     <mat-icon class="cursor-pointer hover:text-red-500">
     video_call
   </mat-icon>
+  </div>
+
   <div>
   </div>
   <div>
-    test
+      <app-chat-box></app-chat-box>
   </div>
   <div class="absolute flex items-center bottom-0  border-t w-full bg-white p-4">
     <input type="text" [(ngModel)]="message"
@@ -32,7 +34,7 @@
 }
 @else
 {
-<div class="flex flex-col items-center justify-center h-full">
+<div class="flex flex-col items-center justify-center p-4 h-full">
   <img src="assets/chatopen.svg" alt="">
 </div>
 }
