@@ -1,6 +1,6 @@
 import { TitleCasePipe } from '@angular/common';
 import { ChatService } from './../../services/chat.service';
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { ChatBoxComponent } from "../chat-box/chat-box.component";
@@ -12,6 +12,8 @@ import { ChatBoxComponent } from "../chat-box/chat-box.component";
   styles: ``
 })
 export class ChatWindowComponent {
+  @ViewChild('chatBox') chatContainer?:ElementRef
+
   chatService = inject(ChatService);
   message:string = '';
 
@@ -19,5 +21,11 @@ export class ChatWindowComponent {
     if(!this.message) return;
     this.chatService.sendMessage(this.message);
     this.message = '';
+    this.scrollToBottom();
+  }
+  scrollToBottom() {
+    if (this.chatContainer) {
+   this.chatContainer.nativeElement.scrollTop = this.chatContainer.nativeElement.scrollHeight;
+     }
   }
 }

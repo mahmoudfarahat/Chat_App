@@ -22,6 +22,8 @@ chatMessages = signal<Message[]>([]);
   private hubConnection?: HubConnection;
   isLoading = signal<boolean>(true);
 
+  autoScrollEnabled = signal<boolean>(true);
+
   startConnection(token: string, senderId?: string) {
     this.hubConnection = new HubConnectionBuilder()
       .withUrl(`${this.hubUrl}?senderId=${senderId || ''}`, {
@@ -51,11 +53,11 @@ chatMessages = signal<Message[]>([]);
       })
     })
 
-    this.hubConnection!.on('',(senderUserName) => {
+    this.hubConnection!.on('NotifyTypingToUser',(senderUserName) => {
       this.onlineUsers.update((users)=>
         users.map((user) => {
             if (user.userName === senderUserName) {
-              user.isOnline = true;
+              user.isTypying = true;
             }
             return user;
         })
@@ -84,9 +86,11 @@ chatMessages = signal<Message[]>([]);
     });
 
     this.hubConnection!.on('ReceieveMessageList', (message) => {
-      console.log(message);
+   this.isLoading.update(() => true);
+
       this.chatMessages.update((messages) => [...message, ...messages]);
-      console.log(this.chatMessages());
+    this.isLoading.update(() => false);
+
     });
 
       this.hubConnection!.on('ReceiveNewMessage', (message) => {
@@ -153,6 +157,8 @@ isUserOnline() : string{
 }
 
 loadMessages(pageNumber: number) {
+     this.isLoading.update(() => true);
+
 this.hubConnection?.invoke('LoadMessages', this.currentbrOpenedChat()?.id, pageNumber)
 .then()
 .catch()
@@ -160,4 +166,16 @@ this.hubConnection?.invoke('LoadMessages', this.currentbrOpenedChat()?.id, pageN
    this.isLoading.update(() => false);
 })
 }
+
+NotifyTyping(){
+  this.hubConnection!.invoke('NotifyTyping', this.currentbrOpenedChat()?.userName)
+  .then((x) => {
+    console.log('Typing notification sent:', x);
+  })
+  .catch((error) => {
+    console.error('Error notifying typing:', error);
+  })
+}
+
+
 }
