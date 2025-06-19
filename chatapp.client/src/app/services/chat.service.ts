@@ -39,6 +39,40 @@ chatMessages = signal<Message[]>([]);
         console.log('Connection or login error', error);
       });
 
+    this.hubConnection!.on('Notify',(user:User) => {
+      Notification.requestPermission().then((result)=>{
+        console.log(result);
+        if (result === 'granted') {
+           new Notification('New Message ', {
+            body: `${user.userName} has sent you a message`,
+            icon: user.profileImage
+          });
+        }
+      })
+    })
+
+    this.hubConnection!.on('',(senderUserName) => {
+      this.onlineUsers.update((users)=>
+        users.map((user) => {
+            if (user.userName === senderUserName) {
+              user.isOnline = true;
+            }
+            return user;
+        })
+      )
+      setTimeout(() => {
+        this.onlineUsers.update((users) =>
+          users.map((user) => {
+            if (user.userName === senderUserName) {
+              user.isTypying = false;
+            }
+            return user;
+          })
+        );
+      }, 2000);
+    });
+
+
     this.hubConnection!.on('OnlineUsers', (user: User[]) => {
       console.log(user);
       this.onlineUsers.update(() =>
