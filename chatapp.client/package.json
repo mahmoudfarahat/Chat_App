@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^19.2.14",
     "@angular/platform-browser-dynamic": "^19.2.14",
     "@angular/router": "^19.2.14",
+    "@angular/service-worker": "^19.2.14",
     "@microsoft/signalr": "^8.0.7",
     "@tailwindcss/postcss": "^4.1.10",
     "postcss": "^8.5.5",

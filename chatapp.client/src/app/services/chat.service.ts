@@ -25,6 +25,17 @@ chatMessages = signal<Message[]>([]);
   autoScrollEnabled = signal<boolean>(true);
 
   startConnection(token: string, senderId?: string) {
+    if(this.hubConnection?.state === HubConnectionState.Connected) return;
+
+    if(this.hubConnection){
+      this.hubConnection.off('ReceiveNewMessage')
+      this.hubConnection.off('NotifyTypingToUser')
+      this.hubConnection.off('OnlineUsers')
+      this.hubConnection.off('ReceieveMessageList')
+      this.hubConnection.off('Notify')
+
+    }
+
     this.hubConnection = new HubConnectionBuilder()
       .withUrl(`${this.hubUrl}?senderId=${senderId || ''}`, {
         accessTokenFactory: () => token,
@@ -94,6 +105,8 @@ chatMessages = signal<Message[]>([]);
     });
 
       this.hubConnection!.on('ReceiveNewMessage', (message) => {
+        let audio = new Audio('assets/notication.wav');
+        audio.play()
         document.title = '(1) New Message';
       this.chatMessages.update((messages) => [...messages, message]);
 

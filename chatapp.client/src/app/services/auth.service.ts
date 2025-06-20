@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { ApiResponse } from '../Models/ApiResponse';
 import { User } from '../Models/User';
@@ -8,6 +8,17 @@ import { User } from '../Models/User';
   providedIn: 'root'
 })
 export class AuthService {
+
+
+  isLoading = signal(false)
+
+
+
+
+
+
+
+
   logout() {
     localStorage.removeItem(this.token);
     localStorage.removeItem('user')
@@ -73,5 +84,5 @@ export class AuthService {
    }
 
 
-   
+
 }

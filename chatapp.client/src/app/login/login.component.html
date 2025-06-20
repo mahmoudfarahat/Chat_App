@@ -42,11 +42,11 @@ class="md:flex justify-center px-20 bg-white gap-10">
       </mat-form-field>
 
 
-      <button
-        [disabled]="!userFrom.valid"
-       type="submit" class="w-full mb-5 bg-blue-900 text-white rounded-md p-2  disabled:opacity-30"  >
-        Login
-      </button>
+      <app-button [isDisabled]="!userFrom.valid"
+      text="Login"
+      (action)="login()"
+        [isLoading]="this.authService.isLoading()"
+      />
 
       <p class="font-bold text-xs text-center">
         Don't have an account? <a class="text-blue-500" [routerLink]="'/register'">Register</a>

@@ -9,11 +9,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/module.d-CnjH8Dlt';
 import { ApiResponse } from '../Models/ApiResponse';
 import { Router, RouterLink } from '@angular/router';
+import { ButtonComponent } from "../components/button/button.component";
 
 
 @Component({
   selector: 'app-login',
-  imports: [MatFormFieldModule , MatInputModule  ,FormsModule , MatButtonModule , MatIconModule ,RouterLink],
+  imports: [MatFormFieldModule, MatInputModule, FormsModule, MatButtonModule, MatIconModule, RouterLink, ButtonComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -23,7 +24,7 @@ email! : string;
 password! : string;
 hide = signal(true);
 
-private authService = inject(AuthService)
+ authService = inject(AuthService)
 private snackBar = inject(MatSnackBar)
 private router = inject(Router)
   togglePassword(event: MouseEvent){
@@ -32,6 +33,7 @@ private router = inject(Router)
 }
 
 login(){
+  this.authService.isLoading.set(true);
     this.authService.login(this.email,this.password)
       .subscribe({
         next : ()=>{
@@ -39,14 +41,20 @@ login(){
           this.snackBar.open("Logged in successfully","close",{
             duration:3000
           })
+            this.authService.isLoading.set(false);
+
         },
         error: (err:HttpErrorResponse)=>{
           let error = err.error as ApiResponse<string>;
 
           this.snackBar.open(error.error)
+                      this.authService.isLoading.set(false);
+
         },
         complete:()=>{
             this.router.navigate(['/'])
+                        this.authService.isLoading.set(false);
+
         }
       })
 }
